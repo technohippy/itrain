@@ -11,6 +11,12 @@ body {
   margin-bottom: 10px;
   padding: 5px;
 }
+#notice {
+  border: 1px solid red;
+  background-color: #FFDDDD;
+  padding: 10px;
+  margin: 10px;
+}
 #content {
   padding: 10px;
 }
@@ -37,4 +43,15 @@ span.nickname {
 #buttons {
   text-align: right;
 }
-
+div.aa pre {
+  height:180px;
+  padding-left:240px;
+  background: url(/images/kuma.png) top left no-repeat #FFDDDD;
+  white-space: pre;
+  letter-spacing: normal;
+  word-spacing: normal;
+  overflow: auto;
+  font-family: "‚l‚r ‚oƒSƒVƒbƒN",Osaka,sans-serif;
+  font-size: 12px;
+  line-height: 1.1;
+}

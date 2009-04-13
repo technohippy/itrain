@@ -12,6 +12,22 @@
         [<%= link_to "Login", BeeU.login(request) %>]
       <%- end -%>
     </div>
+    <%- if flash[:notice] -%>
+      <div id="notice">
+        <div class="aa"><pre>
+
+
+<%= flash[:notice] %>、
+
+ここはお前のお砂場じゃねえんだ
+
+メモ帳にでも書いてろ
+
+
+な！
+        </pre></div>
+      </div>
+    <%- end -%>
     <div id="content">
       <%= yield %>
     </div>
