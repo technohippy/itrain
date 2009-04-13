@@ -1,8 +1,6 @@
 require 'beeu'
 class WelcomeController < ApplicationController
   include BeeU
-  import javax.script.ScriptEngineManager
-  import javax.script.ScriptEngine
 
   before_filter :assign_user
   before_filter :assign_admin_status
@@ -13,24 +11,18 @@ class WelcomeController < ApplicationController
 
   def comment
     comment_body = params[:comment][:body].strip
-    comment_body =
-      case comment_body
-      when /^(e|rb):(.+)$/
-        begin 
-          eval($2).to_s
-        rescue Exception
-          $!.message 
+    if comment_body =~ /^(e|rb):(.+)$/
+      begin 
+        comment_body = eval($2).to_s
+        if 100 < comment_body.size
+          comment_body = nil
+          flash[:notice] = @user.nickname
         end
-      when /^j:(.+)$/
-        begin
-          ScriptEngineManager.new.getEngineByName('javascript').eval($1).to_s
-        rescue Exception
-          $!.message
-        end
-      else
-        comment_body
+      rescue Exception
+        comment_body = $!.message 
       end
-    Comment.create(:nickname => @user.nickname, :body => comment_body, :created_at => Time.now)
+    end
+    Comment.create(:nickname => @user.nickname, :body => comment_body, :created_at => Time.now) unless comment_body.blank?
     redirect_to :action => 'index'
   end
 end
