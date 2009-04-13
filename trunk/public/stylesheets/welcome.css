@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 500px;
+}
+#header {
+  text-align:right;
+  background-color: #ccccff;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+#content {
+  padding: 10px;
+}
+form {
+  text-align: right;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  border-bottom: 1px solid #0000aa;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+span.nickname {
+  font-size: small;
+}
+#footer {
+  text-align:center;
+  background-color: #ccccff;
+  margin-top: 10px;
+  padding: 5px;
+}
+#buttons {
+  text-align: right;
+}
+
