@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=500" />
+    <title>JRuby on Rails on Google AppEngine for Java</title>
+    <%= stylesheet_link_tag 'welcome' %>
+  </head>
+  <body>
+    <div id="header">
+      <%- if @user -%>
+        <%= @user.nickname %> [<%= link_to "Logout", BeeU.logout(request) %>]
+      <%- else -%>
+        [<%= link_to "Login", BeeU.login(request) %>]
+      <%- end -%>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      Copyright &copy; 2009 <%= link_to 'ANDO Yasushi', 'http://d.hatena.ne.jp/technohippy' %><br />
+      <div id="buttons">
+        <%= image_tag 'appengine-silver-120x30.gif' %>
+        <%= image_tag 'rails.png' %>
+      </div>
+    </div>
+  </body>
+</html>

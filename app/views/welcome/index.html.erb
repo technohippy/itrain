@@ -1,0 +1,14 @@
+<%- if @user -%>
+  <% form_tag :action => 'comment' do %>
+    <%= text_field_tag 'comment[body]', '', :size => 50 %>
+    <%= submit_tag 'Comment', :disable_with => 'Sending...' %><br />
+    Start your message with 'e:' to execute any ruby command.
+  <% end %>
+<%- end -%>
+
+<dl>
+  <%- @comments.each do |comment| -%>
+    <dt><%=h comment.nickname %></dt>
+    <dd><%=h comment.body %> <span class="nickname">(<%= comment.created_at.to_s %>)</span></dd>
+  <%- end -%>
+</dl>
